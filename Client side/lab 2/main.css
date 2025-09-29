@@ -1,0 +1,35 @@
+
+div{
+    color: aqua;
+}
+p{
+    color: red;
+}
+
+#myDiv> p.mainClass {
+    color: bisque;
+}
+div p{
+color: blue;
+}
+
+input[type="text"].myClass{
+    color: blueviolet;
+   
+}
+div~span{
+    color: aquamarine;
+}
+
+p.myClass{
+    color: blue;
+}
+#myDiv{
+    color: yellow;
+}
+p, div, span {
+    font-family: "Lucida Calligraphy", cursive;
+}
+div > h1 {
+    text-align: center;
+}

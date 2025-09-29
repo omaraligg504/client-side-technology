@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="project.css">
+    <style>*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: black;
+    height: 70px;
+    position: sticky;
+}
+nav ul li {
+    position: relative;
+    list-style-type: none;
+    inline-size: auto;
+    display: inline-block;
+    height: 100%;
+    padding: 10px 70px;
+    text-decoration: none;
+    line-height: 50px;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+nav ul li:hover{
+    background-color: green;
+    
+}
+.wall {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* height: 500px; */
+    width: 100vw;
+    height: 80vh;
+}
+.wall img{
+    max-width: 100vw;
+    width: 100vw;
+    height: auto;
+    display: block;
+    max-height: 100%;
+}
+.wall .overlay{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    padding: 10px 15px;
+    z-index: 1;
+    font-size: 18px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.box{
+    background-color: white;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    text-align: left;
+    flex: 1;
+}
+.box img{
+    padding:10px 5px;
+    width: 100%;
+    height: 60%;
+    display: block;
+}
+.box h3{
+    padding-left:3px;
+    padding-bottom: 6px;
+}
+.menu{
+    position: relative;
+    width: 60%;
+    margin: 20px auto;
+
+    background-color: black;
+    list-style: none;
+    padding: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-color: red;
+
+}
+.dropdown{
+    
+} 
+.menu ul{
+    border-radius: 50px;
+    border: 2px solid red;
+    border-color: red;
+}
+.menu li {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+
+}
+.menu li:hover{
+    background-color: red;
+}
+</style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.hmtl">Home</a></li>
+            <li><a href="contact.hmtl">News</a></li>
+            <li><a href="news.hmtl">Contact</a></li>
+        </ul>
+    </nav>
+    <h3>lorem</h3>
+    <div class="wall">
+        <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="" >
+        <div class="overlay">
+            <h3>Nature</h3> <br>
+            <br>
+            <p>what a beatiful sunrise</h3>
+        </div>
+    </div>
+    <div class="main">
+        <div class="row">
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>Mountains</h3>
+            <p> Lorem ipsum dolor sit.</p>
+            </div>
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>lights</h3>
+            <p> Lorem ipsum dolor sit.</p>
+            
+            </div>
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>forest</h3>
+            <p> Lorem ipsum dolor sit.</p>
+            
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>text 1</h3>
+            
+            </div>
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>text 1</h3>
+            
+            </div>
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>text 1</h3>
+            
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>text 1</h3>
+            
+            </div>
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>text 1</h3>
+            
+            </div>
+            <div class="box"> <img src="./resources/nature-2ygv7ssy2k0lxlzu.jpg" alt="">
+            <h3>text 1</h3>
+            
+            </div>
+
+        </div>
+        
+    </div>
+    <div class="dropdown">
+
+    <ul class="menu">
+        <li>Google</li>
+        <li>W3school</li>
+        <li>Item</li>
+        <li>Item</li>
+    </ul>
+</div>
+
+</body>
+</html>
