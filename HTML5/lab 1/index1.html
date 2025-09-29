@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 10vh;
+      }
+      .square {
+        width: 350px;
+        height: 430px;
+        background-color: #fff;
+        color: white;
+        font-size: 24px;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        padding: 0;
+      }
+      .card-header {
+        height: 150px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      .blue-header {
+        background: steelblue;
+      }
+      .green-header {
+        background: seagreen;
+      }
+      .card-header img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-title {
+        width: 90%;
+        margin-top: 10px;
+        margin-bottom: 0;
+        font-size: 22px;
+        color: #000;
+        text-align: right;
+        font-weight: bold;
+      }
+      .card-description {
+        width: 90%;
+        font-size: 16px;
+        color: #000;
+        margin: 10px 0;
+        text-align: right;
+      }
+      .card-button {
+        width: 90%;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+      }
+      .card-button button {
+        padding: 8px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background: steelblue;
+        color: #fff;
+
+      }
+      .card-box {
+        width: 90%;
+        height: 60px;
+        box-sizing: border-box;
+        border: 4px solid #006400;
+        border-radius: 0;
+        background: #fff;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      #element1:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        transform: scale(0.96);
+        transition: box-shadow 0.3s, transform 0.3s;
+      }
+      #element1 {
+        transition: box-shadow 0.3s, transform 0.3s;
+      }
+      #element1:hover .card-title {
+        color: steelblue;
+      }
+
+      #element2:hover .card-title {
+        color: seagreen;
+      }
+      #element2 .card-button button {
+        background: #fff;
+        color: #1a237e;
+        border: 2px solid #1a237e;
+      }
+      #element2:hover .card-button button {
+        background: #1a237e;
+        color: #fff;
+      }
+      #element2:hover .card-box {
+        transform: skew(6deg, 3deg);
+        transition: transform 0.3s;
+      }
+      #element2 .card-box {
+        transition: transform 0.3s;
+      }
+      #element3 .card-header img {
+        transition: transform 0.3s;
+      }
+
+      #element3:hover .card-header img {
+        transform: translate(3px, -3px) rotate(2deg);
+      }
+      #element3:hover .card-title {
+        color: seagreen;
+      }
+      #element3 .card-action button {
+        transition: transform 0.3s;
+      }
+
+      #element3:hover .card-button button {
+        transform: scale(1.08);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="element1" class="square">
+        <div class="card-header blue-header"></div>
+        <h3 class="card-title">
+          <span class="gradient-text">Redial Gradient</span>
+          <span class="arabic-text">كرت خلفيه</span>
+        </h3>
+        <div class="card-description">
+          مع الهوفر الكارت كله يصغر سنه و الشادو يزيد
+        </div>
+        <div class="card-button"><button>تواصل</button></div>
+        <div class="card-box">Flex Center + Border</div>
+      </div>
+      <div id="element2" class="square">
+        <div class="card-header green-header"></div>
+        <h3 class="card-title">
+          <span >Linear Gradient</span>
+          <span >كرت خلفيه</span>
+        </h3>
+        <div class="card-description">
+          الصندوق الاخضر هيعمل سكوي مع الهوفر ركز على الحدود العريضه
+        </div>
+        <div class="card-button"><button>تواصل</button></div>
+        <div class="card-box">skew( 6deg ,3deg )</div>
+      </div>
+      <div id="element3" class="square">
+        <div class="card-header">
+          <img src="./resources/download.jpeg" alt="Image Header" />
+        </div>
+        <h3 class="card-title">كرت بصوره خلفيه</h3>
+        <div class="card-description">
+          جرب ترفع الماوس الصوره تطلع لفوق شويه وتلف لفه بسيطه
+        </div>
+        <div class="card-button"><button>تواصل</button></div>
+        <div class="card-box">Flex عنصر داخلي بمحاذاه</div>
+      </div>
+    </div>
+  </body>
+</html>
