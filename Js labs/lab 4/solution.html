@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+      .target-div {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      .class-a {
+        background-color: yellow;
+        color: black;
+      }
+      .class-b {
+        background-color: blue;
+        color: white;
+      }
+      .hidden {
+        display: none;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+      }
+      #slider {
+  text-align: center;
+  margin-top: 20px;
+width: 200px;
+height: 200px;
+}
+#slider-controls {
+  margin-top: 10px;
+  
+}
+#slider-controls button {
+  margin: 0 5px;
+  padding: 6px 12px;
+}
+.odd {
+  background-color: #f0f0f0;
+}
+
+.even {
+  background-color: #d0eaff;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>Day4 DOM</h1>
+    <div id="my-div">
+      <p id="my-p">Hello ISI</p>
+    </div>
+    <form  id="my-form">
+      <input type="text" id="my-input" placeholder="Type something..." />
+      <input
+        type="email"
+        name="user-email"
+        id="my-email"
+        placeholder="Type your email..."
+      />
+      <select name="user-country" id="my-select">
+        <option value="us">United States</option>
+        <option value="EG">Egypt</option>
+        <option value="uk">United Kingdom</option>
+      </select>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <div class="target-div" id="div-2">
+      <h3>create element using js</h3>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+        reiciendis!
+      </p>
+    </div>
+
+    <div id="slider">
+        <img id="slider-img" src="images/facebook.png" />
+        <div id="slider-controls">
+            <button id="prevBtn" onclick="showPrev()" >Prev</button>
+            <button id="nextBtn" onclick="showNext()" >Next</button>
+            <button id="startBtn"onclick="startSlider()" >Start</button>
+            <button id="stopBtn" onclick="stopSlider()">Stop</button>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+    <div id="wrapper">
+  <p id="first">First</p>
+  <p id="second">Second</p>
+</div>
+<div id="list-container"></div>
+    <script>
+// 1. Select the first <div> on the page using getElementsByTagName and log its innerHTML.
+
+console.log(document.getElementsByTagName("div")[0].innerHTML);
+
+// 2. Using getElementById change the text of #my-p to "Hello DOM".
+
+ document.getElementById("my-p").innerHTML = "<p>Hello Dom</p>";
+ 
+
+// 3. Use querySelector to select the element with class "target-div" and log its nodeName.
+
+console.log(document.querySelector(".target-div").nodeName);
+
+
+// 4. Use querySelectorAll to count how many <div> elements exist; log the count.
+
+console.log(document.querySelectorAll("div").length)
+
+// 5. Use getElementsByName on the email input (name="user-email") and set its value to "user@test.com".
+
+document.getElementsByName("user-email")[0].value = "user@test.com";
+
+
+// 6. Check if the text input has a "name" attribute; if not add name="user-name" via setAttribute.
+
+
+if (!document.getElementById("my-input").hasAttribute("name")) {
+  document.getElementById("my-input").setAttribute("name","user-name");
+}
+
+// 7. Append the string " - UPDATED" to the existing innerText of #my-p (keep original text).
+
+document.getElementById("my-p").innerText += "- UPDATED"
+
+// 8. Create Images slider that work automatically and with next/prev/start/stop buttons.
+
+var imgs = ["images/facebook.png","images/gmail.png","images/twitter.png","images/linked.png"]
+var i = 0, interval;
+var imgTag = document.getElementById("slider-img");
+
+imgTag.src = imgs[i];
+
+function showNext(){
+
+    if(i==3){
+      
+      i=0;
+    } 
+    else{
+      i++;
+    }
+    imgTag.src=imgs[i];
+}
+function showPrev(){ 
+    if(i==0){
+      imgTag.src=imgs[3];
+      i=3;
+    } 
+    else{
+      i--;
+    }
+}
+function startSlider(){ 
+    interval=setInterval(showNext,3000);
+}
+function stopSlider(){ 
+    clearInterval(interval); 
+}
+
+document.getElementById("nextBtn").onclick = showNext;
+document.getElementById("prevBtn").onclick = showPrev;
+document.getElementById("startBtn").onclick = startSlider;
+document.getElementById("stopBtn").onclick = stopSlider;
+
+// 9. Set the placeholder of the text input to "Type your full name" using setAttribute.
+
+document.querySelector("[type = text]").setAttribute("placeholder", "Type your full name")
+
+// 10. Log whether the email input has attribute "required"; if missing add it.
+
+if(!(document.querySelector("[type = email]").hasAttribute("required"))){
+    document.querySelector("[type = email]").setAttribute("required", true)
+}
+console.log(document.querySelector("[type = email]"))
+
+// 11. Write function getSelectedValue(selectId) returning the current selected option value.
+
+function getSelectedValue(selectId){
+    return document.getElementById(selectId).value;
+}
+console.log(getSelectedValue("my-select"));
+
+// 12. Loop through all options of the select and log each option's text and value.
+
+    for(op of document.getElementById("my-select").options){
+        console.log(op.innerText,op.value)
+    }
+
+// 13. Programmatically select the option with value "EG".
+
+    for(op of document.getElementById("my-select").options){
+        if(op.value ==="EG"){ 
+            op.selected = true;
+            break;
+        }
+    }
+
+// 14. Create function selectByText(selectId, text) that selects the first option whose text matches exactly.
+
+function selectByText(selectId, text){
+    for(op of document.getElementById(selectId).options){
+        if(op.value ===text){ 
+            op.selected = true;
+            break;
+        }
+    }
+}
+selectByText("my-select", "us")
+
+// 15. Replace innerHTML of #div-2 with a <p><b>Bold Text</b></p> (ensure bold renders, not printed literally).
+
+document.getElementById("div-2").innerHTML="<p><b>Bold Text</b></p>";
+
+// 16. Add classes class-a and class-b to #div-2 then remove class-b (using classList).
+
+var d2=document.getElementById("div-2");
+d2.classList.add("class-a");
+d2.classList.add("class-b");
+d2.classList.remove("class-b");
+
+// 17. Toggle class "hidden" on #div-2 twice; comment final visibility.
+
+document.getElementById("div-2").classList.toggle("hidden");
+document.getElementById("div-2").classList.toggle("hidden");
+// the visibility will be visible not hidden 
+// 18. Create function insertAfter(refNode, newNode) that inserts newNode immediately after refNode.
+
+function insertAfter(refNode, newNode) {
+  refNode.insertAdjacentElement("afterend", newNode);
+}
+
+// 19. Create a new <div> saying "Dynamic Box" with yellow background and append inside #div-2.
+
+var mydiv = document.createElement("div");
+  mydiv.textContent = "Dynamic Box";
+  mydiv.style.backgroundColor = "yellow";
+
+// 20. Insert a new <p> BEFORE the first child of #div-2 (insertBefore).
+var p=document.createElement("p")
+p.textContent="i am 20"
+  document.getElementById("div-2").insertAdjacentElement("afterbegin",p)
+
+    
+// 21. Insert a <span> with text "AFTER END" right after #div-2 using insertAdjacentHTML.
+document.getElementById("div-2").insertAdjacentHTML("afterend", "<span>AFTER END</span>");
+
+
+// 22. Form onsubmit: prevent default and log values of text, email, and select inputs.
+document.getElementById("my-form").onsubmit = function (event) {
+    event.preventDefault();
+    console.log( document.getElementById("my-input").value);
+    console.log(document.getElementById("my-email").value);
+    console.log(document.getElementById("my-select").value);
+  };
+
+
+// 23. Add input event on the text input that logs its length whenever it changes.
+
+document.getElementById("my-input").addEventListener("input", function () {
+    console.log( this.value.length);
+  });
+
+// 24. Write validateEmailSimple(value) returning true if value contains both '@' and '.'; add 2 passing / 2 failing examples (comments).
+function validateEmailSimple(value) {
+  return value.includes("@") && value.includes(".");
+}
+console.log(validateEmailSimple("ajsndfjkasndioa@klasndklasndioa.com")); // true
+console.log(validateEmailSimple("jasnjdqasd@asjkdnasjkd.com")); // 
+
+console.log(validateEmailSimple("dasiodfaiosn.com")); 
+console.log(validateEmailSimple("uasndjand@jkasndjkosdn")); 
+// 25. Create an element, append it to #div-2, then remove it using parent.removeChild(child).
+var  newp = document.createElement("p");
+newp.textContent = "appended after div2";
+ document.getElementById("div-2").appendChild(newp);
+// 25. Create an element, append it to <div id="wrapper">
+//   <p id="first">First</p>
+//   <p id="second">Second</p>
+// </div>
+
+var lastp = document.createElement("p");
+  lastp.textContent = "last b2a please";
+document.getElementById("wrapper").insertBefore(lastp,document.getElementById("second"));
+// 26. Clone #div-2 , set clone id="div-2-clone", and insert it after original using insertAfter.
+//first time to see this clone thing honstly
+var original = document.getElementById("div-2");
+  var clone = original.cloneNode(true); // true = deep clone with children
+  clone.id = "div-2-clone";
+  insertAfter(original, clone);
+// 27. Highlight all text & email inputs (green border) in a function highlightInputs(form) and call it on DOMContentLoaded.
+
+function highlightInputs(form) {
+    const inputs = form.querySelectorAll('input[type="text"], input[type="email"]');
+    inputs.forEach(input => {
+      input.style.border = "2px solid green";
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("my-form");
+    highlightInputs(form);
+  });
+
+// 28. Build function buildCard(title, content) returning <div class="card"> with an <h3> and <p>; append two cards to body.
+
+function buildCard(title, content) {
+    
+    var card = document.createElement("div");
+    card.className = "card";
+    var h3 = document.createElement("h3");
+    h3.textContent = title;
+    var p = document.createElement("p");
+    p.textContent = content;
+    card.appendChild(h3);
+    card.appendChild(p);
+    return card;
+  }
+  // Append two cards to body
+  document.body.appendChild(buildCard("aywaa first card ya 3m"));
+  document.body.appendChild(buildCard("Unfurtuently no thing last forever this is the second card"));
+
+// 29. Add delegated click listener on body logging when a .card is clicked.
+//chatgpt helped my in this one tbh
+document.body.addEventListener("click", function (event) {
+    
+    const card = event.target.closest(".card"); 
+    if (card) {
+      console.log("Card clicked:", card.querySelector("h3").textContent);
+    }
+  });
+
+// 30. Reflection (comment): Which two tasks were most challenging and why?
+//29 
+// el m3ah rbna ma fesh haga sa3ba 3leh ya handasa 
+
+
+// 31. create and unordered list dynamically with at 10 items, the odd list items should have class "odd" and even items "even", -create the two classes in your CSS file-
+// 
+
+ const ul = document.createElement("ul");
+
+  for (let i = 1; i <= 10; i++) {
+    const li = document.createElement("li");
+    li.textContent = "Item " + i;
+    if (i % 2 === 0) {
+      li.classList.add("even");
+    } else {
+      li.classList.add("odd");
+    }
+
+    ul.appendChild(li);
+  }
+  document.getElementById("list-container").appendChild(ul);
+
+</script>
+    
+</body>
+</html>

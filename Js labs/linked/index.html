@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Linked List Visualization</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Linked List Visualization</h1>
+  <div id="message">Linked list is empty.</div>
+  <div id="list-container"></div>
+  <div id="size-display">Size: 0</div>
+  <div id="reversed-container"></div>
+  <div id="controls">
+    <input type="text" id="valueInput" placeholder="Enter value">
+    <div class="buttons">
+      <button onclick="pushFront()">Push Front</button>
+      <button onclick="pushBack()">Push Back</button>
+        <button onclick="popFront(this)">Pop Front</button>
+        <button onclick="popBack(this)">Pop Back</button>
+
+      <button onclick="reverseListAnimation()">Reverse</button>
+       <button onclick="emptyList()">Empty</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

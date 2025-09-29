@@ -1,0 +1,184 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#message {
+  font-size: 22px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+#list-container, #reversed-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  min-height: 100px; 
+}
+
+.node {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+#size-display {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#valueInput {
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+}
+#valueInput:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 6px rgba(0,123,255,0.6);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: white;
+  transition: 0.2s;
+}
+button:hover {
+  background: #555;
+}
+
+button.invalid {
+  background: #d9534f !important;
+  animation: wiggle 0.4s;
+}
+.invalid {
+  animation: wiggle 0.4s ease;
+  background-color: #ff4d4d !important;
+}
+
+@keyframes wiggle {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(5deg); }
+  50%  { transform: rotate(-5deg); }
+  75%  { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.controls input {
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.controls button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.controls button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.controls button:active {
+  transform: scale(0.95);
+}
+
+.message {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 6px;
+  animation: fadeIn 0.3s ease;
+}
+
+.message.error {
+  background: #ffdddd;
+  color: #d8000c;
+}
+
+.message.success {
+  background: #ddffdd;
+  color: #4f8a10;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.node {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+
+.new-list {
+  margin-top: 40px;
+  opacity: 0.8;
+}
